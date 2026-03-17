@@ -13,7 +13,7 @@ const config: Config = {
   },
 
   // TODO: Replace with actual production domain if changed later
-  url: 'https://www.earth.bearhub.chat',
+  url: 'https://earth.bearhub.chat',
   baseUrl: '/',
 
   // TODO: Replace with actual GitHub org/repo
@@ -117,7 +117,7 @@ const config: Config = {
         {
           title: '更多',
           items: [
-            { label: 'RSS', href: 'https://www.earth.bearhub.chat/blog/rss.xml' },
+            { label: 'RSS', href: 'https://earth.bearhub.chat/blog/rss.xml' },
           ],
         },
       ],
