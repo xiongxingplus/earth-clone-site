@@ -62,7 +62,7 @@
 - 更像 geospatial / infrastructure company
 - 结构更像能力链路，而不是功能清单
 
-### 3. eaveluo.com 顶栏
+### 3. 顶栏目标
 - 顶栏薄、轻、固定、半透明
 - 左品牌、右功能导航
 - 克制、整齐、秩序感强
