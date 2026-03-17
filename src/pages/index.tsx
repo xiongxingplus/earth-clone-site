@@ -9,6 +9,7 @@ function HeroSection() {
     <div className="hero-wrapper">
       <div className="hero-section">
         <div className="hero-content">
+          <span className="hero-tagline-en">Earth Clone</span>
           <h1>克隆地球</h1>
           <p className="hero-subtitle">
             在数字世界中重构真实的地球。
@@ -44,18 +45,28 @@ function HeroSection() {
 
 function NarrativeSection() {
   return (
-    <div className="narrative-section">
-      <h2>我们在做什么</h2>
-      <div className="narrative-body">
-        <p>
-          克隆地球（Earth Clone）是一个开源的数字孪生实验项目。我们的目标是在浏览器或独立引擎中，一比一还原真实的地球表面形态。通过接入 OpenStreetMap、全球数字高程模型（DEM）等开放地理空间数据，我们试图打通从现实世界到虚拟空间的自动化管线。
-        </p>
-        <p>
-          这不仅是一个渲染器的挑战，更是一个庞大数据的调度工程。我们采用了基于 Mercator 投影的四叉树（QuadTree）瓦片架构，实现了全球级别的流式加载机制。不论是巍峨的山脉、交织的路网，还是拔地而起的城市建筑，都能在用户视野中按需、无缝地动态生成与呈现。
-        </p>
-        <p>
-          在这个高度商业化且封闭的赛道里，我们希望探索出一条完全开放、透明、可复现的技术路径。用代码重建我们脚下的土地，打造一个可扩展的数字行星基础框架。
-        </p>
+    <div className="section narrative-section">
+      <span className="section-label">01 &mdash; 核心理念</span>
+      <h2 className="section-title">我们在做什么</h2>
+      <div className="manifesto-grid">
+        <div className="manifesto-block">
+          <h3>一比一还原</h3>
+          <p>
+            通过接入全球数字高程模型与高精度开放数据，我们在浏览器或独立引擎中，重建地表形态，打通从现实世界到虚拟空间的自动化管线。
+          </p>
+        </div>
+        <div className="manifesto-block">
+          <h3>流式地球引擎</h3>
+          <p>
+            基于 Mercator 投影的四叉树（QuadTree）瓦片架构，实现了全球级别的流式加载。巍峨山脉与城市建筑皆能按需、无缝地动态生成。
+          </p>
+        </div>
+        <div className="manifesto-block">
+          <h3>开源透明</h3>
+          <p>
+            在高度商业化且封闭的赛道里，探索一条完全开放、透明、可复现的技术路径。用代码重建脚下的土地，打造可扩展的数字行星框架。
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -104,15 +115,18 @@ const techItems: TechItem[] = [
 function TechSection() {
   return (
     <div className="section tech-section">
-      <h2 className="section-title">技术路线</h2>
-      <div className="tech-list">
+      <span className="section-label">02 &mdash; 技术架构</span>
+      <h2 className="section-title">核心引擎模块</h2>
+      <div className="tech-grid">
         {techItems.map((item) => (
-          <div className="tech-item" key={item.id}>
-            <div className="tech-item-name">{item.name}</div>
-            <div className="tech-item-desc">{item.description}</div>
-            <div className={clsx('tech-item-status', item.status)}>
-              {item.status === 'active' ? '开发中' : '规划中'}
+          <div className={clsx('tech-card', item.status)} key={item.id}>
+            <div className="tech-card-header">
+              <h3 className="tech-card-title">{item.name}</h3>
+              <span className="tech-badge">
+                {item.status === 'active' ? '开发中' : '规划中'}
+              </span>
             </div>
+            <p className="tech-card-desc">{item.description}</p>
           </div>
         ))}
       </div>
@@ -160,7 +174,8 @@ const latestDocs: ContentItem[] = [
 function LatestContentSection() {
   return (
     <div className="section">
-      <h2 className="section-title">最新内容</h2>
+      <span className="section-label">03 &mdash; 最新动态</span>
+      <h2 className="section-title">项目进展</h2>
       <div className="content-columns">
         <div className="content-col">
           <h3>博客</h3>
@@ -172,6 +187,7 @@ function LatestContentSection() {
               </Link>
             ))}
           </div>
+          <Link to="/blog" className="view-all-link">查看全部博客 &rarr;</Link>
         </div>
         <div className="content-col">
           <h3>知识库</h3>
@@ -183,6 +199,7 @@ function LatestContentSection() {
               </Link>
             ))}
           </div>
+          <Link to="/docs/intro" className="view-all-link">查看全部文档 &rarr;</Link>
         </div>
       </div>
     </div>
@@ -223,12 +240,13 @@ const roadmapItems: RoadmapItem[] = [
 function RoadmapSection() {
   return (
     <div className="section roadmap-section">
-      <h2 className="section-title">路线图</h2>
-      <div className="roadmap-list">
+      <span className="section-label">04 &mdash; 路线图</span>
+      <h2 className="section-title">开发计划</h2>
+      <div className="roadmap-grid">
         {roadmapItems.map((item) => (
           <div className={clsx('roadmap-item', { current: item.current })} key={item.phase}>
+            <span className="roadmap-phase">{item.phase}</span>
             <h4>
-              <span className="roadmap-phase">{item.phase}</span>
               {item.title}
               {item.current && (
                 <span className="roadmap-current-badge">← 当前阶段</span>

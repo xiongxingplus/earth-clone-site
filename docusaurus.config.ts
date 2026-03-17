@@ -89,28 +89,13 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [
+        { label: '知识库', to: '/docs/intro' },
+        { label: '博客', to: '/blog' },
+        { label: '关于', to: '/about' },
+        { label: 'RSS', href: 'https://earth.bearhub.chat/blog/rss.xml' },
         {
-          title: '内容',
-          items: [
-            { label: '知识库', to: '/docs/intro' },
-            { label: '博客', to: '/blog' },
-          ],
-        },
-        {
-          title: '项目',
-          items: [
-            { label: '关于', to: '/about' },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/xiongxingplus/earth-clone-site',
-            },
-          ],
-        },
-        {
-          title: '更多',
-          items: [
-            { label: 'RSS', href: 'https://earth.bearhub.chat/blog/rss.xml' },
-          ],
+          label: 'GitHub',
+          href: 'https://github.com/xiongxingplus/earth-clone-site',
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} 克隆地球项目组`,
