@@ -31,7 +31,7 @@
   
   --ifm-background-color: #0b1120;
   --ifm-background-surface-color: #0b1120;
-  --ifm-navbar-background-color: rgba(11, 17, 32, 0.75);
+  --ifm-navbar-background-color: #0b1120;
   --ifm-footer-background-color: #060b16;
   --ifm-card-background-color: #0b1120;
   --ifm-toc-border-color: rgba(255, 255, 255, 0.06);
@@ -63,16 +63,32 @@ body {
 .navbar {
   position: sticky;
   top: 0;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
-  z-index: 1000;
+  /* Use Docusaurus default z-index so sidebar/backdrop render above navbar */
+  z-index: var(--ifm-z-index-fixed);
   height: var(--ifm-navbar-height);
 }
 
 [data-theme='dark'] .navbar {
-  background-color: var(--ifm-navbar-background-color);
+  background-color: rgba(11, 17, 32, 0.85);
+}
+
+/* Mobile sidebar must be fully opaque — translucent backgrounds look broken
+   when the sidebar slides over the page content */
+.navbar-sidebar {
+  background: #ffffff;
+}
+
+[data-theme='dark'] .navbar-sidebar {
+  background: #0b1120;
+}
+
+/* Ensure sidebar backdrop dims correctly */
+.navbar-sidebar__backdrop {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .navbar__item {
