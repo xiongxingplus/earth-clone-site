@@ -6,14 +6,14 @@ const config: Config = {
   title: '克隆地球',
   tagline: '用数字技术，重建一颗真实的地球',
   // TODO: Replace with actual favicon when ready
-  favicon: 'img/favicon.ico',
+  favicon: 'favicon.ico',
 
   future: {
     v4: true,
   },
 
-  // TODO: Replace with actual production domain (bearhub.chat or www.bearhub.chat)
-  url: 'https://www.bearhub.chat',
+  // TODO: Replace with actual production domain if changed later
+  url: 'https://www.earth.bearhub.chat',
   baseUrl: '/',
 
   // TODO: Replace with actual GitHub org/repo
@@ -117,7 +117,7 @@ const config: Config = {
         {
           title: '更多',
           items: [
-            { label: 'RSS', href: 'https://www.bearhub.chat/blog/rss.xml' },
+            { label: 'RSS', href: 'https://www.earth.bearhub.chat/blog/rss.xml' },
           ],
         },
       ],
