@@ -5,130 +5,116 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 
 function HeroSection() {
-  const { siteConfig } = useDocusaurusContext();
   return (
-    <div className="hero-section">
-      <h1>{siteConfig.title}</h1>
-      <p className="hero-subtitle">{siteConfig.tagline}</p>
-      <div className="hero-buttons">
-        <Link className="button button--primary button--lg" to="/docs/intro">
-          了解项目
-        </Link>
-        <Link className="button button--outline button--lg" to="/blog">
-          阅读博客
-        </Link>
-        <Link className="button button--outline button--lg" to="/docs/intro">
-          查看知识库
-        </Link>
+    <div className="hero-wrapper">
+      <div className="hero-section">
+        <div className="hero-content">
+          <h1>克隆地球</h1>
+          <p className="hero-subtitle">
+            在数字世界中重构真实的地球。
+            <br />
+            基于开源地理空间数据与现代引擎技术，构建一个全尺寸、可流式加载的三维数字孪生底座。
+          </p>
+          <div className="hero-buttons">
+            <Link className="button button--primary" to="/docs/intro">
+              了解项目
+            </Link>
+            <a
+              className="button button--secondary"
+              href="https://github.com/xiongxingplus/earth-clone-site"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+        <div className="hero-visual">
+          <img
+            src="/img/earth-clone-poster.png"
+            alt="克隆地球项目宣传海报"
+            className="hero-image"
+            loading="eager"
+          />
+        </div>
       </div>
     </div>
   );
 }
 
-function PosterSection() {
+function NarrativeSection() {
   return (
-    <div className="poster-section">
-      <img
-        src="/img/earth-clone-poster.png"
-        alt="克隆地球项目宣传海报"
-        loading="eager"
-      />
+    <div className="narrative-section">
+      <h2>我们在做什么</h2>
+      <div className="narrative-body">
+        <p>
+          克隆地球（Earth Clone）是一个开源的数字孪生实验项目。我们的目标是在浏览器或独立引擎中，一比一还原真实的地球表面形态。通过接入 OpenStreetMap、全球数字高程模型（DEM）等开放地理空间数据，我们试图打通从现实世界到虚拟空间的自动化管线。
+        </p>
+        <p>
+          这不仅是一个渲染器的挑战，更是一个庞大数据的调度工程。我们采用了基于 Mercator 投影的四叉树（QuadTree）瓦片架构，实现了全球级别的流式加载机制。不论是巍峨的山脉、交织的路网，还是拔地而起的城市建筑，都能在用户视野中按需、无缝地动态生成与呈现。
+        </p>
+        <p>
+          在这个高度商业化且封闭的赛道里，我们希望探索出一条完全开放、透明、可复现的技术路径。用代码重建我们脚下的土地，打造一个可扩展的数字行星基础框架。
+        </p>
+      </div>
     </div>
   );
 }
 
-interface FeatureItem {
-  icon: string;
-  title: string;
+interface TechItem {
+  id: string;
+  name: string;
   description: string;
   status: 'active' | 'planned';
 }
 
-const features: FeatureItem[] = [
+const techItems: TechItem[] = [
   {
-    icon: '\u{1F3D4}',
-    title: '地形系统',
-    description: '基于真实高程数据的全球地形渲染，支持 LOD 与四叉树分块加载。',
+    id: 'terrain',
+    name: 'Terrain',
+    description: '全球高程数据 · QuadTree 分块 · LOD 层级渲染',
     status: 'active',
   },
   {
-    icon: '\u{1F3D7}',
-    title: '建筑系统',
-    description: '接入 OpenStreetMap 建筑数据，生成三维建筑模型并放置于地形之上。',
+    id: 'buildings',
+    name: 'Buildings',
+    description: 'OSM 建筑数据 · 三维模型生成 · 地形贴合',
     status: 'active',
   },
   {
-    icon: '\u{1F6E3}',
-    title: '道路系统',
-    description: '矢量道路数据解析与路网渲染，支持不同等级道路的可视化。',
+    id: 'roads',
+    name: 'Roads',
+    description: '矢量路网解析 · 多级道路渲染',
     status: 'active',
   },
   {
-    icon: '\u{1F30A}',
-    title: '水域渲染',
-    description: '海洋、湖泊、河流的识别与渲染，提升地球表面的真实感。',
-    status: 'planned',
+    id: 'streaming',
+    name: 'Streaming',
+    description: '四叉树瓦片架构 · Mercator 投影 · 按需加载',
+    status: 'active',
   },
   {
-    icon: '\u{1F333}',
-    title: '植被系统',
-    description: '基于遥感数据生成植被覆盖，还原不同地区的自然景观。',
-    status: 'planned',
-  },
-  {
-    icon: '\u{1F697}',
-    title: '动态交通',
-    description: '接入实时交通数据，在数字地球上模拟真实车流与交通态势。',
+    id: 'future',
+    name: 'Future',
+    description: '水域 · 植被 · 动态交通 · 天气系统',
     status: 'planned',
   },
 ];
 
-function FeaturesSection() {
+function TechSection() {
   return (
-    <div className="section">
-      <h2 className="section-title">核心模块</h2>
-      <div className="features-grid">
-        {features.map((feature) => (
-          <div className="feature-card" key={feature.title}>
-            <div className="feature-icon">{feature.icon}</div>
-            <h3>{feature.title}</h3>
-            <p>{feature.description}</p>
-            <span className={clsx('feature-status', feature.status)}>
-              {feature.status === 'active' ? '开发中' : '规划中'}
-            </span>
+    <div className="section tech-section">
+      <h2 className="section-title">技术路线</h2>
+      <div className="tech-list">
+        {techItems.map((item) => (
+          <div className="tech-item" key={item.id}>
+            <div className="tech-item-name">{item.name}</div>
+            <div className="tech-item-desc">{item.description}</div>
+            <div className={clsx('tech-item-status', item.status)}>
+              {item.status === 'active' ? '开发中' : '规划中'}
+            </div>
           </div>
         ))}
-      </div>
-    </div>
-  );
-}
-
-function IntroSection() {
-  return (
-    <div className="section">
-      <h2 className="section-title">关于项目</h2>
-      <div className="features-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
-        <div className="feature-card">
-          <h3>我们要做什么</h3>
-          <p>
-            构建一个实时在线版的数字地球，以真实地理数据为基础，
-            在浏览器或引擎中还原地球的地形、建筑、道路、水域与植被。
-          </p>
-        </div>
-        <div className="feature-card">
-          <h3>为什么值得做</h3>
-          <p>
-            现有数字地球方案多为封闭商业产品。我们希望用开放数据和现代引擎技术，
-            探索一条可复现、可扩展的技术路径。
-          </p>
-        </div>
-        <div className="feature-card">
-          <h3>技术路线</h3>
-          <p>
-            引擎选用 Unreal Engine 5（仅作渲染器），自研 QuadTree 流式加载系统，
-            采用 Mercator 投影与四叉树瓦片架构。
-          </p>
-        </div>
       </div>
     </div>
   );
@@ -175,27 +161,23 @@ function LatestContentSection() {
   return (
     <div className="section">
       <h2 className="section-title">最新内容</h2>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem' }}>
-        <div>
-          <h3 style={{ marginBottom: '1rem', opacity: 0.7, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            博客
-          </h3>
-          <div className="latest-grid" style={{ gridTemplateColumns: '1fr' }}>
+      <div className="content-columns">
+        <div className="content-col">
+          <h3>博客</h3>
+          <div className="content-list">
             {latestBlogPosts.map((post) => (
-              <Link className="latest-card" to={post.link} key={post.title}>
+              <Link className="content-card" to={post.link} key={post.title}>
                 <h4>{post.title}</h4>
                 <p>{post.description}</p>
               </Link>
             ))}
           </div>
         </div>
-        <div>
-          <h3 style={{ marginBottom: '1rem', opacity: 0.7, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            知识库
-          </h3>
-          <div className="latest-grid" style={{ gridTemplateColumns: '1fr' }}>
+        <div className="content-col">
+          <h3>知识库</h3>
+          <div className="content-list">
             {latestDocs.map((doc) => (
-              <Link className="latest-card" to={doc.link} key={doc.title}>
+              <Link className="content-card" to={doc.link} key={doc.title}>
                 <h4>{doc.title}</h4>
                 <p>{doc.description}</p>
               </Link>
@@ -240,18 +222,16 @@ const roadmapItems: RoadmapItem[] = [
 
 function RoadmapSection() {
   return (
-    <div className="roadmap-section">
+    <div className="section roadmap-section">
       <h2 className="section-title">路线图</h2>
       <div className="roadmap-list">
         {roadmapItems.map((item) => (
           <div className={clsx('roadmap-item', { current: item.current })} key={item.phase}>
             <h4>
-              <span style={{ opacity: 0.5, marginRight: '0.5rem' }}>{item.phase}</span>
+              <span className="roadmap-phase">{item.phase}</span>
               {item.title}
               {item.current && (
-                <span style={{ marginLeft: '0.5rem', fontSize: '0.75rem', color: '#22d3ee' }}>
-                  ← 当前阶段
-                </span>
+                <span className="roadmap-current-badge">← 当前阶段</span>
               )}
             </h4>
             <p>{item.description}</p>
@@ -268,9 +248,8 @@ export default function Home(): React.JSX.Element {
     <Layout title="首页" description={siteConfig.tagline}>
       <main>
         <HeroSection />
-        <PosterSection />
-        <IntroSection />
-        <FeaturesSection />
+        <NarrativeSection />
+        <TechSection />
         <LatestContentSection />
         <RoadmapSection />
       </main>

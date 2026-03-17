@@ -5,19 +5,16 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: '克隆地球',
   tagline: '用数字技术，重建一颗真实的地球',
-  // TODO: Replace with actual favicon when ready
-  favicon: 'favicon.ico',
+  favicon: 'img/2026-03-18-00-26-earth-clone-favicon-master.png',
 
   future: {
     v4: true,
   },
 
-  // TODO: Replace with actual production domain if changed later
   url: 'https://earth.bearhub.chat',
   baseUrl: '/',
 
-  // TODO: Replace with actual GitHub org/repo
-  organizationName: 'earth-clone',
+  organizationName: 'xiongxingplus',
   projectName: 'earth-clone-site',
 
   onBrokenLinks: 'throw',
@@ -31,7 +28,6 @@ const config: Config = {
   i18n: {
     defaultLocale: 'zh-Hans',
     locales: ['zh-Hans'],
-    // Future: add 'en' to locales array to enable English
   },
 
   presets: [
@@ -40,8 +36,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // TODO: Replace with actual GitHub repo URL
-          editUrl: 'https://github.com/earth-clone/earth-clone-site/edit/main/',
+          editUrl: 'https://github.com/xiongxingplus/earth-clone-site/edit/main/',
         },
         blog: {
           showReadingTime: true,
@@ -49,8 +44,7 @@ const config: Config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
-          // TODO: Replace with actual GitHub repo URL
-          editUrl: 'https://github.com/earth-clone/earth-clone-site/edit/main/',
+          editUrl: 'https://github.com/xiongxingplus/earth-clone-site/edit/main/',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -71,11 +65,11 @@ const config: Config = {
     },
     navbar: {
       title: '克隆地球',
-      // TODO: Replace with actual logo file
       logo: {
         alt: '克隆地球 Logo',
-        src: 'img/logo.png',
+        src: 'img/2026-03-18-00-26-earth-clone-logo.png',
       },
+      hideOnScroll: false,
       items: [
         {
           type: 'docSidebar',
@@ -86,8 +80,7 @@ const config: Config = {
         { to: '/blog', label: '博客', position: 'left' },
         { to: '/about', label: '关于', position: 'left' },
         {
-          // TODO: Replace with actual GitHub repo URL
-          href: 'https://github.com/earth-clone/earth-clone-site',
+          href: 'https://github.com/xiongxingplus/earth-clone-site',
           label: 'GitHub',
           position: 'right',
         },
@@ -120,7 +113,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} 克隆地球项目组. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} 克隆地球项目组`,
     },
     prism: {
       theme: prismThemes.github,

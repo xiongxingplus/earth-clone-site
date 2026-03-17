@@ -42,11 +42,10 @@ export default function About(): React.JSX.Element {
 
         <section>
           <h2>联系我们</h2>
-          {/* TODO: Replace with actual contact info and GitHub URL */}
           <ul>
             <li>
               GitHub：
-              <a href="https://github.com/earth-clone/earth-clone-site" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/xiongxingplus/earth-clone-site" target="_blank" rel="noopener noreferrer">
                 xiongxingplus/earth-clone-site
               </a>
             </li>

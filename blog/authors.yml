@@ -2,5 +2,4 @@ earth-clone-team:
   name: 克隆地球团队
   title: Earth Clone Project
   url: https://github.com/xiongxingplus/earth-clone-site
-  # TODO: Replace with actual team avatar
-  image_url: https://github.com/identicons/earth-clone.png
+  image_url: /img/authors/2026-03-18-00-26-bear-author-avatar.png
