@@ -1,158 +1,140 @@
-# 交给 OpenCode 的开发任务说明书
+# 交给 OpenCode 的开发任务说明书 v2
 
-你要为“克隆地球（Earth Clone）”项目搭建一个 **Docusaurus 官网**。
+你现在要继续迭代“克隆地球（Earth Clone）”项目官网的第二版。
 
-## 一、目标
+## 一、背景
 
-实现一个可上线的项目官网，包含：
-- 首页
-- 技术博客
-- 知识库
-- About 页面
-- Giscus 评论
-- 中文默认
-- 多语言预留
+第一版已经完成：
+- Docusaurus 站点结构
+- 首页 / blog / docs / about
+- 基础深色主题
+- 部分占位资源与配置
+- 站点已上线到 `https://earth.bearhub.chat`
 
-## 二、技术约束
+但当前首页存在明显问题：
+- 太像 AI 模板生成的网站
+- 模板味重
+- 卡片墙过多
+- emoji 降低质感
+- 品牌识别度不足
+- 不够像“克隆地球项目官网”
 
-必须遵守：
-- 使用 **Docusaurus classic**
-- 使用 **TypeScript**
-- 使用 **Markdown / MDX + Git** 管理内容
-- 部署目标为 **Vercel**
-- 评论系统使用 **Giscus**
-- 当前只做中文，但要预留 i18n
+## 二、总体目标
 
-明确禁止：
-- 不要 fork docusaurus 仓库
-- 不要修改 Docusaurus 内核源码
-- 不要引入 PocketBase 作为第一期内容源
-- 不要做自定义 CMS
-- 不要做自定义编辑器
-- 不要引入复杂后端
-- 不要做重型 3D 交互首页
+在现有第一版基础上，做第二轮视觉与结构改版：
+- 更像项目官网
+- 更像品牌首页
+- 更有数字地球项目气质
+- 更少 AI 味
+- 更有设计感，但仍然克制
 
-## 三、项目背景
+## 三、必须遵守的约束
 
-该网站服务于“克隆地球”项目。
+### 必须遵守
+- 基于现有 repo 继续改，不要重开新项目
+- 使用 Docusaurus 现有机制，不要改框架内核
+- 维持 blog / docs / about 架构
+- 保持 TypeScript
+- 保持 Markdown / MDX 内容流
+- 保持可维护性
+- 改完后必须本地 build 验证通过
+- 改完后必须 git commit
 
-项目目标：
-构建一个实时在线版数字地球，支持真实地球的：
-- 地形
-- 建筑
-- 道路
-- 水域
-- 植被
-- 动态交通
+### 明确禁止
+- 不要引入 PocketBase 作为内容源
+- 不要做 CMS
+- 不要做编辑器
+- 不要做复杂后端
+- 不要大幅增加无意义动画
+- 不要做 SaaS 营销页风格首页
+- 不要再使用 emoji 作为模块图标
 
-当前技术方向：
-- 引擎：Unreal Engine 5（仅作渲染器）
-- 架构：自研 QuadTree 流式加载系统
-- 投影：Mercator + 四叉树瓦片
-- 当前优先方向：地形、建筑、道路
+## 四、设计参考方向
 
-## 四、页面要求
+### 1. 51Earth
+- cinematic 品牌感
+- 强主视觉
+- 大留白
+- 项目宣言式首页
 
-### 1. 首页 `/`
+### 2. blackshark.ai
+- 技术平台叙事
+- 更像 geospatial / infrastructure company
+- 结构更像能力链路，而不是功能清单
 
-首页必须自定义，不能保持默认模板感。
+### 3. eaveluo.com 顶栏
+- 顶栏薄、轻、固定、半透明
+- 左品牌、右功能导航
+- 克制、整齐、秩序感强
 
-必须包含：
-- Hero 区（标题 + 副标题 + CTA）
-- 宣传海报图展示
-- 项目简介区
-- 核心模块区（地形 / 建筑 / 道路 / 规划项）
-- 最新博客区
-- 最新知识库区
-- Roadmap 区
+## 五、第二版改版要求
 
-### 2. 博客 `/blog`
+### 首页
+- Hero 重构：左侧项目宣言，右侧海报图
+- 项目说明区：从 feature cards 改成项目叙事
+- 技术路线区：不用 emoji 卡片，改成工程化结构表达
+- 最新内容区：保留，但更克制
+- Roadmap 区：更有秩序
 
-使用 Docusaurus blog。
+### 顶栏（重点）
+- 固定顶部
+- 半透明深色背景
+- 轻微 blur
+- 底部细边线
+- 左侧品牌：logo + 克隆地球
+- 导航建议：项目 / 知识库 / 博客 / 路线图 / 关于
+- 右侧：GitHub / 主题切换 / 搜索（可选）
 
-要求：
-- 标签
-- 作者信息
-- 摘要
-- 发布时间
-- Giscus 评论
+### 去模板化
+必须减少：
+- emoji
+- 通用 AI 风渐变标题
+- 平均化功能卡片墙
+- 模板式 feature blocks
 
-### 3. 知识库 `/docs`
+必须增加：
+- 留白
+- 排版层级
+- 品牌节奏
+- 工程感
+- 地理空间 / 数字地球气质
 
-使用 Docusaurus docs。
+## 六、已确认配置（直接接入）
 
-博客和知识库必须分开。
+### 主站域名
+- `https://earth.bearhub.chat`
 
-初始化知识库栏目：
-- 项目总览
-- 架构设计
-- 地形系统
-- 建筑系统
-- 道路系统
-- 流式加载
-- 数据流程
-- 参考资料
+### GitHub 仓库
+- `https://github.com/xiongxingplus/earth-clone-site`
 
-### 4. About `/about`
+### Giscus
+- repo: `xiongxingplus/earth-clone-site`
+- repoId: `R_kgDORpnvAQ`
+- category: `Announcements`
+- categoryId: `DIC_kwDORpnvAc4C4nmZ`
+- mapping: `pathname`
+- lang: `zh-CN`
 
-内容包括：
-- 项目背景
-- 技术方向
-- 当前阶段
-- 联系方式 / GitHub 入口
+### 资源素材
+- 海报：`static/img/earth-clone-poster.png`
+- Logo：`static/img/2026-03-18-00-26-earth-clone-logo.png`
+- favicon 源图：`static/img/2026-03-18-00-26-earth-clone-favicon-master.png`
+- 作者头像：`static/img/authors/2026-03-18-00-26-bear-author-avatar.png`
 
-## 五、视觉要求
+这些素材已经通过审核，直接接入。
 
-整体风格：
-- 暗色主题
-- 科技感
-- 数字地球 / 太空 / 经纬网 / 线框感
-- 首页重点突出宣传海报图
-- 降低 Docusaurus 默认模板味道
+## 七、输出要求
 
-## 六、国际化要求
+你需要完成：
+1. 第二版首页改版
+2. 顶栏改版
+3. 接入真实 GitHub repo URL
+4. 接入真实 Giscus 配置
+5. 接入 logo / favicon / 作者头像
+6. 保持 build 成功
+7. git commit
 
-- 默认语言：中文
-- 项目结构按 Docusaurus i18n 方式设计
-- 当前不用真的上线英文内容
-- 未来增加英文时改动成本低
-
-## 七、SEO 与工程要求
-
-请补齐：
-- metadata
-- title / description
-- Open Graph
-- sitemap
-- favicon
-- 合理 heading 结构
-
-工程要求：
-- TypeScript
-- 组件拆分清晰
-- 目录结构清晰
-- README 写清楚：
-  - 本地开发
-  - 构建
-  - Vercel 部署
-  - 新增博客文章方式
-  - 新增知识库文章方式
-
-## 八、输出顺序
-
-请按以下顺序执行：
-1. 给出整体实现方案和目录结构
-2. 初始化项目
-3. 完成页面与主题定制
-4. 接入 Giscus 预留配置
-5. 补充示例内容
-6. 给出运行与部署说明
-
-## 九、待确认项
-
-如有以下内容未最终确定，请使用清晰占位符并列出：
-- 主站域名（bearhub.chat 或 www.bearhub.chat）
-- Giscus 仓库 / Discussion 分类
-- Logo / favicon
-- 首页副标题最终文案
-- 联系方式 / GitHub 链接
+完成后请总结：
+- 改了哪些文件
+- 解决了哪些“AI 模板味”问题
+- 还有哪些待进一步设计优化点

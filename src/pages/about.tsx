@@ -47,7 +47,7 @@ export default function About(): React.JSX.Element {
             <li>
               GitHub：
               <a href="https://github.com/earth-clone/earth-clone-site" target="_blank" rel="noopener noreferrer">
-                earth-clone/earth-clone-site
+                xiongxingplus/earth-clone-site
               </a>
             </li>
             <li>如有任何问题或合作意向，欢迎通过 GitHub Issues 联系我们。</li>

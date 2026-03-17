@@ -108,9 +108,8 @@ const config: Config = {
           items: [
             { label: '关于', to: '/about' },
             {
-              // TODO: Replace with actual GitHub URL
               label: 'GitHub',
-              href: 'https://github.com/earth-clone/earth-clone-site',
+              href: 'https://github.com/xiongxingplus/earth-clone-site',
             },
           ],
         },
